@@ -1,3 +1,10 @@
-#add service definition here
-sensor_msgs/JointState position
+# add request here
+# sensor_msgs/JointState position
+std_msgs/Float64 q1
+std_msgs/Float64 q2
+std_msgs/Float64 q3
 ---
+# add response here
+std_msgs/Float64 x
+std_msgs/Float64 y
+std_msgs/Float64 z

@@ -37,6 +37,7 @@ install(DIRECTORY
   # add directories here
   launch
   scripts
+  dummy_kinematics
   DESTINATION share/${PROJECT_NAME})
 
 ament_package()
