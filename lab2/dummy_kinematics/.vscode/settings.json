@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/semon/fra333_ws/install/my_first_package/lib/python3.8/site-packages",
+        "/home/semon/fra333_ws/install/lab1_interfaces/lib/python3.8/site-packages",
+        "/home/semon/fra333_ws/install/fra333_lab1_23/lib/python3.8/site-packages",
+        "/home/semon/fra333_ws/install/fra333_lab1/lib/python3.8/site-packages",
+        "/home/semon/fra333_ws/install/dummy_description/lib/python3.8/site-packages",
+        "/opt/ros/foxy/lib/python3.8/site-packages"
+    ]
+}

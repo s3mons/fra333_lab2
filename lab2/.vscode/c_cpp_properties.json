@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/semon/fra333_ws/install/my_first_package/include/**",
+        "/home/semon/fra333_ws/install/lab1_interfaces/include/**",
+        "/opt/ros/foxy/include/**",
+        "/home/semon/fra333_ws/src/my_first_package/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
