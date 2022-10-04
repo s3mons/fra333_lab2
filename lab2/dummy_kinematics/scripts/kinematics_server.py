@@ -13,7 +13,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 from dummy_kinematics_interfaces.srv import GetPosition
-# from dummy_kinematics_interfaces.srv import SolveIK
+from dummy_kinematics_interfaces.srv import SolveIK
 from std_msgs.msg import Float64
 from geometry_msgs.msg import Point
 from dummy_kinematics.forward_kinematics import forward_kinematics
@@ -32,7 +32,7 @@ class Kinematics_Server(Node):
 
         # Create Service 
         self.joint_states = self.create_service(GetPosition,'set_joint',self.set_joint_callback)
-        # self.joint_states_ik = self.create_service(SolveIK,'solve_ik',self.set_joint_callback_ik)
+        self.joint_states_ik = self.create_service(SolveIK,'solve_ik',self.set_joint_callback_ik)
 
         # Create Publisher
         self.command_publisher = self.create_publisher(JointState,'/joint_states',10)
@@ -61,18 +61,24 @@ class Kinematics_Server(Node):
         return response
     
     # Inverse Kinematics
-    # def set_joint_callback_ik(self,request:SolveIK.Request,response:SolveIK.Response):
+    def set_joint_callback_ik(self,request,response:SolveIK.Response):
 
-    #     self.joint_state_position.position[0] = request.x.data
-    #     self.joint_state_position.position[1] = request.y.data
-    #     self.joint_state_position.position[2] = request.z.data
+        self.joint_state_position.position[0] = request.point.x
+        self.joint_state_position.position[1] = request.point.y
+        self.joint_state_position.position[2] = request.point.z
+        gamma = request.gamma
 
-    #     ik = inverse_kinematics(self.joint_state_position.position)
-    #     # response.x.data = fk[0][3] 
-    #     # response.y.data = fk[1][3] 
-    #     # response.z.data = fk[2][3] 
+        ik = inverse_kinematics(self.joint_state_position.position,gamma)
+        self.joint_state_position.position[0] = ik[0]
+        self.joint_state_position.position[1] = ik[1]
+        self.joint_state_position.position[2] = ik[2]
 
-    #     return response
+
+        response.q_1.data = ik[0] 
+        response.q_2.data = ik[1] 
+        response.q_3.data = ik[2] 
+
+        return response
 
     def timer_callback(self):
         
