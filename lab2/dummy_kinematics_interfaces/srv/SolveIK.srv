@@ -1,8 +1,8 @@
 # add resquest
-#geometry_msgs/Point point
-std_msgs/Int32MultiArray y
+geometry_msgs/Point point
+int32[] gamma
 ---
 # add response
-std_msgs/Float64 q1
-std_msgs/Float64 q2
-std_msgs/Float64 q3
+std_msgs/Float64 q_1
+std_msgs/Float64 q_2
+std_msgs/Float64 q_3
