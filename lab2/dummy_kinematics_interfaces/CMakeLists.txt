@@ -33,14 +33,15 @@ if(BUILD_TESTING)
 endif()
 
 find_package(rosidl_default_generators REQUIRED)
+find_package(geometry_msgs)
 find_package(std_msgs)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  # add your services here  
-  "srv/SetJoint.srv"
-  
+  "srv/GetPosition.srv"
+  "srv/SolveIK.srv"
+  DEPENDENCIES geometry_msgs
   DEPENDENCIES std_msgs
 )
 
 
-ament_package()
+ament_package() 

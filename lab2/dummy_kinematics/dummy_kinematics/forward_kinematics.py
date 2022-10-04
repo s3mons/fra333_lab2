@@ -4,7 +4,7 @@ def forward_kinematics(q):
     joint_config = q
     n_joint = 3
     DH_pam = [[0 ,0 ,0.3 ,0],
-              [0.16 ,1.57 ,0 ,0],
+              [0.16 ,math.pi/2 ,0 ,0],
               [0.35 ,0 ,0 ,0]]
 
     H = np.identity(4)
@@ -15,7 +15,7 @@ def forward_kinematics(q):
                  [0 ,0 ,0 ,1]]
 
     for i in range(n_joint):
-        rad = joint_config[i] * math.pi/180
+        rad = joint_config[i]
         c ,s = np.cos(rad), np.sin(rad)
         c_t ,s_t = np.cos(0), np.sin(0)
         c_x ,s_x = np.cos(DH_pam[i][1]), np.sin(DH_pam[i][1])
