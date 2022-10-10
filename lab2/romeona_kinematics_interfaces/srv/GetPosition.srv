@@ -1,0 +1,6 @@
+# add request here
+sensor_msgs/JointState q
+
+---
+# add response here
+geometry_msgs/Point p
