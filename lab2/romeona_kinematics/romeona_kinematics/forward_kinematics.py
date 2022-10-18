@@ -46,16 +46,10 @@ def forward_kinematics(q):
                 [0 , 0 ,0 ,1]]
 
         H = H @ T_x @ R_x @ T_z @ R_z @ H_j      
-        # H = np.matmul(H ,T_x) 
-        # H = np.matmul(H ,R_x)  
-        # H = np.matmul(H ,T_z)  
-        # H = np.matmul(H ,R_z)  
-        # H = np.matmul(H ,H_j) 
-#     print(np.matmul(H,H_end_eff)[0][3])
 
     H = H@H_end_eff
-#     round(H[1][3],10)
 
     return H
+    
 # print(forward_kinematics([math.pi,0,0]))
 

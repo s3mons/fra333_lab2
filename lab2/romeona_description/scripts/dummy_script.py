@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from romeona_description.romeona_description.romeona_module import dummy_function, dummy_var
+from romeona_description.romeona_module import dummy_function, dummy_var
 import rclpy
 from rclpy.node import Node
 
